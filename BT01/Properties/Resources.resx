@@ -117,4 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="216785_cancel_x_delete_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icon\216785_cancel_x_delete_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="7188638_like_thumb_social_vote_favorite_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icon\7188638_like_thumb_social_vote_favorite_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="285661_star_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icon\285661_star_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="4172174_documentation_info_information_instruction_intelligence_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icon\4172174_documentation_info_information_instruction_intelligence_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="211876_play_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icon\211876_play_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye-3-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icon\eye-3-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo-removebg-preview - Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icon\logo-removebg-preview - Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tHlBqst" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icon\tHlBqst.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2c4PrbW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icon\2c4PrbW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

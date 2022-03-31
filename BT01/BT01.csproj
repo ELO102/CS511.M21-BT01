@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Detail_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detail_Form.Designer.cs">
+      <DependentUpon>Detail_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Detail_Form.resx">
+      <DependentUpon>Detail_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,7 +120,34 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Icon\" />
+    <None Include="Icon\eye-3-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\211876_play_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\216785_cancel_x_delete_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\285661_star_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\4172174_documentation_info_information_instruction_intelligence_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\7188638_like_thumb_social_vote_favorite_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\103796_view_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\logo-removebg-preview - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\2c4PrbW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\tHlBqst.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

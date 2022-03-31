@@ -15,3 +15,4 @@ E:\Study\CS511.M21\CS511.M21-BT01\BT01\obj\Debug\BT01.csproj.GenerateResource.ca
 E:\Study\CS511.M21\CS511.M21-BT01\BT01\obj\Debug\BT01.csproj.CoreCompileInputs.cache
 E:\Study\CS511.M21\CS511.M21-BT01\BT01\obj\Debug\BT01.exe
 E:\Study\CS511.M21\CS511.M21-BT01\BT01\obj\Debug\BT01.pdb
+E:\Study\CS511.M21\CS511.M21-BT01\BT01\obj\Debug\BT01.Detail_Form.resources

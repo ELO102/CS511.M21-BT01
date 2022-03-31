@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Panel panel_MovieName;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label_MovieName = new System.Windows.Forms.Label();
             this.panel_RightMainDivision = new System.Windows.Forms.Panel();
             this.groupBox_MovieDetail = new System.Windows.Forms.GroupBox();
@@ -38,7 +39,10 @@
             this.panel_Decription = new System.Windows.Forms.Panel();
             this.textBox_Detail = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.button_star = new System.Windows.Forms.Button();
+            this.button_view = new System.Windows.Forms.Button();
+            this.button_like = new System.Windows.Forms.Button();
             this.groupBox_ButtonAction1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button_exit = new System.Windows.Forms.Button();
@@ -78,6 +82,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel_NavBar = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             panel_MovieName = new System.Windows.Forms.Panel();
             panel_MovieName.SuspendLayout();
             this.panel_RightMainDivision.SuspendLayout();
@@ -87,6 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Poster)).BeginInit();
             this.panel_Decription.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.groupBox_ButtonAction1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel_LeftMainDivision.SuspendLayout();
@@ -112,6 +118,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            this.panel_NavBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_MovieName
@@ -132,7 +139,7 @@
             this.label_MovieName.Name = "label_MovieName";
             this.label_MovieName.Size = new System.Drawing.Size(284, 64);
             this.label_MovieName.TabIndex = 0;
-            this.label_MovieName.Text = "Please choose your movie";
+            this.label_MovieName.Text = "Xin hãy chọn phim bạn muốn";
             this.label_MovieName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel_RightMainDivision
@@ -222,20 +229,84 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.flowLayoutPanel1);
+            this.panel4.Controls.Add(this.tableLayoutPanel2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(3, 507);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(284, 61);
             this.panel4.TabIndex = 0;
             // 
-            // flowLayoutPanel1
+            // tableLayoutPanel2
             // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(284, 61);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.Controls.Add(this.button_star, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button_view, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button_like, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(284, 61);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // button_star
+            // 
+            this.button_star.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_star.FlatAppearance.BorderSize = 0;
+            this.button_star.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.button_star.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_star.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_star.ForeColor = System.Drawing.Color.Gold;
+            this.button_star.Image = global::BT01.Properties.Resources._285661_star_icon;
+            this.button_star.Location = new System.Drawing.Point(183, 3);
+            this.button_star.Name = "button_star";
+            this.button_star.Size = new System.Drawing.Size(98, 55);
+            this.button_star.TabIndex = 2;
+            this.button_star.Text = "Star";
+            this.button_star.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button_star.UseVisualStyleBackColor = true;
+            // 
+            // button_view
+            // 
+            this.button_view.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_view.FlatAppearance.BorderSize = 0;
+            this.button_view.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.button_view.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_view.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_view.ForeColor = System.Drawing.Color.White;
+            this.button_view.Image = global::BT01.Properties.Resources.eye_3_24;
+            this.button_view.Location = new System.Drawing.Point(100, 10);
+            this.button_view.Margin = new System.Windows.Forms.Padding(10);
+            this.button_view.Name = "button_view";
+            this.button_view.Size = new System.Drawing.Size(70, 41);
+            this.button_view.TabIndex = 1;
+            this.button_view.Text = "View";
+            this.button_view.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button_view.UseVisualStyleBackColor = true;
+            // 
+            // button_like
+            // 
+            this.button_like.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_like.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_like.FlatAppearance.BorderSize = 0;
+            this.button_like.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.button_like.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_like.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_like.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button_like.Image = global::BT01.Properties.Resources._7188638_like_thumb_social_vote_favorite_icon;
+            this.button_like.Location = new System.Drawing.Point(10, 15);
+            this.button_like.Margin = new System.Windows.Forms.Padding(10, 15, 10, 15);
+            this.button_like.Name = "button_like";
+            this.button_like.Size = new System.Drawing.Size(70, 31);
+            this.button_like.TabIndex = 0;
+            this.button_like.Text = "Like";
+            this.button_like.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button_like.UseVisualStyleBackColor = true;
+            this.button_like.Click += new System.EventHandler(this.button_like_Click);
             // 
             // groupBox_ButtonAction1
             // 
@@ -273,8 +344,12 @@
             this.button_exit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_exit.BackColor = System.Drawing.Color.White;
+            this.button_exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_exit.FlatAppearance.BorderSize = 0;
             this.button_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_exit.ForeColor = System.Drawing.Color.Black;
+            this.button_exit.Image = global::BT01.Properties.Resources._216785_cancel_x_delete_icon;
             this.button_exit.Location = new System.Drawing.Point(198, 10);
             this.button_exit.Margin = new System.Windows.Forms.Padding(10);
             this.button_exit.Name = "button_exit";
@@ -282,7 +357,7 @@
             this.button_exit.TabIndex = 2;
             this.button_exit.Text = "EXIT";
             this.button_exit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button_exit.UseVisualStyleBackColor = true;
+            this.button_exit.UseVisualStyleBackColor = false;
             this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
             // 
             // button_detail
@@ -290,8 +365,12 @@
             this.button_detail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_detail.BackColor = System.Drawing.Color.White;
+            this.button_detail.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_detail.FlatAppearance.BorderSize = 0;
             this.button_detail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_detail.ForeColor = System.Drawing.Color.Black;
+            this.button_detail.Image = global::BT01.Properties.Resources._4172174_documentation_info_information_instruction_intelligence_icon;
             this.button_detail.Location = new System.Drawing.Point(104, 10);
             this.button_detail.Margin = new System.Windows.Forms.Padding(10);
             this.button_detail.Name = "button_detail";
@@ -299,15 +378,20 @@
             this.button_detail.TabIndex = 1;
             this.button_detail.Text = "DETAIL";
             this.button_detail.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button_detail.UseVisualStyleBackColor = true;
+            this.button_detail.UseVisualStyleBackColor = false;
+            this.button_detail.Click += new System.EventHandler(this.button_detail_Click);
             // 
             // button_play
             // 
             this.button_play.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_play.BackColor = System.Drawing.Color.White;
+            this.button_play.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_play.FlatAppearance.BorderSize = 0;
             this.button_play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_play.ForeColor = System.Drawing.Color.Black;
+            this.button_play.Image = global::BT01.Properties.Resources._211876_play_icon;
             this.button_play.Location = new System.Drawing.Point(10, 10);
             this.button_play.Margin = new System.Windows.Forms.Padding(10);
             this.button_play.Name = "button_play";
@@ -315,7 +399,7 @@
             this.button_play.TabIndex = 0;
             this.button_play.Text = "PLAY";
             this.button_play.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button_play.UseVisualStyleBackColor = true;
+            this.button_play.UseVisualStyleBackColor = false;
             this.button_play.Click += new System.EventHandler(this.button_play_Click);
             // 
             // panel_LeftMainDivision
@@ -751,12 +835,26 @@
             // 
             // panel_NavBar
             // 
-            this.panel_NavBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.panel_NavBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(237)))), ((int)(((byte)(217)))));
+            this.panel_NavBar.BackgroundImage = global::BT01.Properties.Resources.logo_removebg_preview___Copy;
+            this.panel_NavBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel_NavBar.Controls.Add(this.button1);
             this.panel_NavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_NavBar.Location = new System.Drawing.Point(0, 0);
             this.panel_NavBar.Name = "panel_NavBar";
             this.panel_NavBar.Size = new System.Drawing.Size(974, 74);
             this.panel_NavBar.TabIndex = 0;
+            this.panel_NavBar.Click += new System.EventHandler(this.panel_NavBar_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(896, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Phim Mỹ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -765,10 +863,12 @@
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panel_LeftMainDivision);
             this.Controls.Add(this.panel_RightMainDivision);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form1";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Form1";
             panel_MovieName.ResumeLayout(false);
@@ -780,6 +880,7 @@
             this.panel_Decription.ResumeLayout(false);
             this.panel_Decription.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox_ButtonAction1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel_LeftMainDivision.ResumeLayout(false);
@@ -805,6 +906,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            this.panel_NavBar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -859,7 +961,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox textBox_Detail;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button button_like;
+        private System.Windows.Forms.Button button_star;
+        private System.Windows.Forms.Button button_view;
+        private System.Windows.Forms.Button button1;
     }
 }
 

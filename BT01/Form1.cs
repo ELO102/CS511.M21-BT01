@@ -18,13 +18,26 @@ namespace BT01
         {
             InitializeComponent();
             Show_to_ListMovie();
+            Disable_FlatAppearance();
         }
 
         private string strFolder = @"E:\Study\CS511.M21\CS511.M21-BT01\BT01\";
         private DataTable dt_ListMovie = GetMovieDataTable();
-        private int curChosen_idx = 0;
+        private int curChosen_idx = -1;
+        private bool liked = false;
 
         /// MANUAL CODE /////////////////////////////////////////////////////////////////
+        // Disable FlatAppearance.MouseOverBackColor
+        public void Disable_FlatAppearance()
+        {
+            this.button_like.FlatAppearance.MouseOverBackColor = button_like.BackColor;
+            this.button_star.FlatAppearance.MouseOverBackColor = button_star.BackColor;
+            this.button_view.FlatAppearance.MouseOverBackColor = button_view.BackColor;
+            this.button_like.FlatAppearance.MouseDownBackColor = button_like.BackColor;
+            this.button_star.FlatAppearance.MouseDownBackColor = button_star.BackColor;
+            this.button_view.FlatAppearance.MouseDownBackColor = button_view.BackColor;
+        }
+
         // Get-functions
         public static DataTable ConvertCSVtoDataTable(string strFilePath)
         {
@@ -48,7 +61,6 @@ namespace BT01
                 }
 
             }
-
 
             return dt;
         }
@@ -76,10 +88,38 @@ namespace BT01
                 pan.Visible = true; // show panel
 
                 DataRow dr = dt_ListMovie.Rows[index]; // get row[idx] in datatable
+                pan.Name = dr["ID"].ToString();
                 string path_img = dr.Field<string>(3); // get path_poster at col[3] and set as string
 
                 PictureBox pb = pan.Controls.OfType<PictureBox>().First();
                 pb.ImageLocation = Path.Combine(strFolder,path_img);
+                Label label_name = pan.Controls.OfType<Label>().First();
+                label_name.Text = dr["name"].ToString();
+
+                index++;
+            }
+        }
+        private void Show_to_ListMovie_My()
+        {
+            var index = 0;
+            DataRow[] dt_My = dt_ListMovie.Select("nation = 'Mỹ'");
+            foreach (var pan in tableLayoutPanel4.Controls.OfType<Panel>()) // iter all panel by Add order
+            {
+                pan.Visible = false; // hide panel
+
+                if (index + 1 > dt_My.Length) // checking if current_index > num_movie 
+                {
+                    continue; // if true then pass this panel and don't show it
+                }
+
+                pan.Visible = true; // show panel
+
+                DataRow dr = dt_My[index]; // get row[idx] in datatable
+                pan.Name = dr["ID"].ToString();
+                string path_img = dr.Field<string>(3); // get path_poster at col[3] and set as string
+
+                PictureBox pb = pan.Controls.OfType<PictureBox>().First();
+                pb.ImageLocation = Path.Combine(strFolder, path_img);
                 Label label_name = pan.Controls.OfType<Label>().First();
                 label_name.Text = dr["name"].ToString();
 
@@ -97,18 +137,34 @@ namespace BT01
             MoreDetail_update( (Panel)((Control)sender).Parent );
         }
 
-        // Click button_play -> show Movie_Player Form
+        // Click button_play -> show Movie_Player Form , view +=1
         private void button_play_Click(object sender, EventArgs e)
         {
-            Movie_Player movie_Player = new Movie_Player();
+            if (curChosen_idx == -1) { pop_up_NoMovieMsg(); return; }
+            string path_vid = dt_ListMovie.Rows[curChosen_idx].Field<string>(4);
+            string path_full = Path.Combine(strFolder, path_vid);
+
+            int view_count = Int32.Parse(button_view.Text);
+            view_count++;
+            button_view.Text = view_count.ToString();
+
+            Movie_Player movie_Player = new Movie_Player(path_full);
             movie_Player.ShowDialog();
+        }
+
+        // Click button_detail -> show Detail Form
+        private void button_detail_Click(object sender, EventArgs e)
+        {
+            if (curChosen_idx == -1) { pop_up_NoMovieMsg(); return; }
+            Detail_Form detail_form = new Detail_Form(dt_ListMovie.Rows[curChosen_idx]);
+            detail_form.ShowDialog();
         }
 
         // Show Poster and update curChosen
         private void MoreDetail_update(Panel pan)
         {
             // update curChosen
-            curChosen_idx = pan.TabIndex;
+            curChosen_idx = Int32.Parse(pan.Name);
 
             // Show Poster
             DataRow dr = dt_ListMovie.Rows[curChosen_idx]; // get row[idx] in datatable
@@ -129,8 +185,13 @@ namespace BT01
                 textBox_Detail.Text += gernes[i] + ','+' ';
             }
             textBox_Detail.Text += gernes[gernes.Length - 1] + newLine;
+
+            button_like.Text = dr["like"].ToString();
+            button_view.Text = dr["view"].ToString();
+            button_star.Text = "Star: " + dr["star"].ToString();
         }
 
+        // Click button_exit -> msgBox exit ? Yes : No
         private void button_exit_Click(object sender, EventArgs e)
         {
             string message = "Do you want to close this window?";
@@ -141,6 +202,51 @@ namespace BT01
             {
                 Application.Exit();
             }
+        }
+
+        // Click button_like -> like += 1
+        private void button_like_Click(object sender, EventArgs e)
+        {
+            if (curChosen_idx == -1) { pop_up_NoMovieMsg(); return; }
+            if (liked == false)
+            {
+                int like_count = Int32.Parse(button_like.Text);
+                like_count++;
+                button_like.Text = like_count.ToString();
+                liked = true;
+            }
+            else
+            {
+                int like_count = Int32.Parse(button_like.Text);
+                like_count--;
+                button_like.Text = like_count.ToString();
+                liked = false;
+            }
+        }
+
+        // "Please chose your movie" msg
+        private void pop_up_NoMovieMsg()
+        {
+            string message = "Xin hãy chọn phim bạn muốn";
+            string title = "Error";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            MessageBox.Show(message, title, buttons);
+        }
+
+        // Non-change mouse
+        private void mouse_DoNothing(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Show_to_ListMovie_My();
+        }
+
+        private void panel_NavBar_Click(object sender, EventArgs e)
+        {
+            Show_to_ListMovie();
         }
     }
 }

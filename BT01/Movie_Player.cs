@@ -22,5 +22,10 @@ namespace BT01
             InitializeComponent();
             axWindowsMediaPlayer1.URL = path_movie;
         }
+
+        private void Stop_media(object sender, FormClosingEventArgs e)
+        {
+            axWindowsMediaPlayer1.close();
+        }
     }
 }
