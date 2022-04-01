@@ -82,7 +82,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel_NavBar = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button4 = new System.Windows.Forms.Button();
             panel_MovieName = new System.Windows.Forms.Panel();
             panel_MovieName.SuspendLayout();
             this.panel_RightMainDivision.SuspendLayout();
@@ -838,6 +843,11 @@
             this.panel_NavBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(237)))), ((int)(((byte)(217)))));
             this.panel_NavBar.BackgroundImage = global::BT01.Properties.Resources.logo_removebg_preview___Copy;
             this.panel_NavBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel_NavBar.Controls.Add(this.button4);
+            this.panel_NavBar.Controls.Add(this.listBox1);
+            this.panel_NavBar.Controls.Add(this.button3);
+            this.panel_NavBar.Controls.Add(this.textBox1);
+            this.panel_NavBar.Controls.Add(this.button2);
             this.panel_NavBar.Controls.Add(this.button1);
             this.panel_NavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_NavBar.Location = new System.Drawing.Point(0, 0);
@@ -845,6 +855,16 @@
             this.panel_NavBar.Size = new System.Drawing.Size(974, 74);
             this.panel_NavBar.TabIndex = 0;
             this.panel_NavBar.Click += new System.EventHandler(this.panel_NavBar_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(815, 48);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Lịch sử";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.LichSu_Click);
             // 
             // button1
             // 
@@ -855,6 +875,46 @@
             this.button1.Text = "Phim Mỹ";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 48);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(102, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(128, 45);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Tìm";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button_finding_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Items.AddRange(new object[] {
+            "Giật Gân",
+            "Kinh Dị",
+            "Viễn Tưởng",
+            "Không"});
+            this.listBox1.Location = new System.Drawing.Point(590, 38);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 30);
+            this.listBox1.TabIndex = 5;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(716, 48);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Find";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button_danhmuc_Click);
             // 
             // Form1
             // 
@@ -870,7 +930,7 @@
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form1";
             this.ShowInTaskbar = false;
-            this.Text = "Form1";
+            this.Text = "Movie ";
             panel_MovieName.ResumeLayout(false);
             this.panel_RightMainDivision.ResumeLayout(false);
             this.groupBox_MovieDetail.ResumeLayout(false);
@@ -907,6 +967,7 @@
             this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.panel_NavBar.ResumeLayout(false);
+            this.panel_NavBar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -966,6 +1027,11 @@
         private System.Windows.Forms.Button button_star;
         private System.Windows.Forms.Button button_view;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button4;
     }
 }
 

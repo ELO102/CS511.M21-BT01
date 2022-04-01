@@ -19,6 +19,7 @@ namespace BT01
             InitializeComponent();
             Show_to_ListMovie();
             Disable_FlatAppearance();
+            LichSu_Init();
         }
 
         private string strFolder = @"E:\Study\CS511.M21\CS511.M21-BT01\BT01\";
@@ -99,6 +100,63 @@ namespace BT01
                 index++;
             }
         }
+        private void Show_Finding()
+        {
+            var index = 0;
+            string keyword = textBox1.Text;
+            DataRow[] dt_find = dt_ListMovie.Select("name Like '%" + keyword + "%'");
+            if (dt_find.Length == 0) { MessageBox.Show("Không tìm thấy phim", "ERROR");}
+            foreach (var pan in tableLayoutPanel4.Controls.OfType<Panel>()) // iter all panel by Add order
+            {
+                pan.Visible = false; // hide panel
+
+                if (index + 1 > dt_find.Length) // checking if current_index > num_movie 
+                {
+                    continue; // if true then pass this panel and don't show it
+                }
+
+                pan.Visible = true; // show panel
+
+                DataRow dr = dt_find[index]; // get row[idx] in datatable
+                pan.Name = dr["ID"].ToString();
+                string path_img = dr.Field<string>(3); // get path_poster at col[3] and set as string
+
+                PictureBox pb = pan.Controls.OfType<PictureBox>().First();
+                pb.ImageLocation = Path.Combine(strFolder, path_img);
+                Label label_name = pan.Controls.OfType<Label>().First();
+                label_name.Text = dr["name"].ToString();
+
+                index++;
+            }
+        }
+        private void Show_danhmuc()
+        {
+            var index = 0;
+            string keyword = listBox1.SelectedItem.ToString();
+            DataRow[] dt_find = dt_ListMovie.Select("gernes Like '%" + keyword + "%'");
+            foreach (var pan in tableLayoutPanel4.Controls.OfType<Panel>()) // iter all panel by Add order
+            {
+                pan.Visible = false; // hide panel
+
+                if (index + 1 > dt_find.Length) // checking if current_index > num_movie 
+                {
+                    continue; // if true then pass this panel and don't show it
+                }
+
+                pan.Visible = true; // show panel
+
+                DataRow dr = dt_find[index]; // get row[idx] in datatable
+                pan.Name = dr["ID"].ToString();
+                string path_img = dr.Field<string>(3); // get path_poster at col[3] and set as string
+
+                PictureBox pb = pan.Controls.OfType<PictureBox>().First();
+                pb.ImageLocation = Path.Combine(strFolder, path_img);
+                Label label_name = pan.Controls.OfType<Label>().First();
+                label_name.Text = dr["name"].ToString();
+
+                index++;
+            }
+        }
         private void Show_to_ListMovie_My()
         {
             var index = 0;
@@ -127,6 +185,38 @@ namespace BT01
             }
         }
 
+        private void Show_lichsu()
+        {
+            var index = 0;
+            DataView dt_view = new DataView(LichSu);
+            DataTable dt_ls = dt_view.ToTable(true, "id");
+            foreach (var pan in tableLayoutPanel4.Controls.OfType<Panel>()) // iter all panel by Add order
+            {
+                pan.Visible = false; // hide panel
+
+                if (index + 1 > dt_ls.Select().Length) // checking if current_index > num_movie 
+                {
+                    continue; // if true then pass this panel and don't show it
+                }
+
+                pan.Visible = true; // show panel
+
+                DataRow temp_dr = dt_ls.Rows[index];
+                int idx = temp_dr.Field<int>(0);
+                DataRow dr = dt_ListMovie.Rows[idx]; // get row[idx] in datatable
+                pan.Name = dr["ID"].ToString();
+                string path_img = dr.Field<string>(3); // get path_poster at col[3] and set as string
+
+                PictureBox pb = pan.Controls.OfType<PictureBox>().First();
+                pb.ImageLocation = Path.Combine(strFolder, path_img);
+                Label label_name = pan.Controls.OfType<Label>().First();
+                DateTime timer = LichSu.Select("id = " + idx.ToString()).Last().Field<DateTime>(1);
+                label_name.Text = LichSu.Select("id = "+idx.ToString()).Length + "-" + timer.ToString("MM/dd/yy H:mm:ss");
+
+                index++;
+            }
+        }
+
         // Click panel_inListMovie -> 
         private void panel_inListMovie_Click(object sender, EventArgs e)
         {
@@ -147,6 +237,9 @@ namespace BT01
             int view_count = Int32.Parse(button_view.Text);
             view_count++;
             button_view.Text = view_count.ToString();
+            dt_ListMovie.Rows[curChosen_idx]["view"] = view_count.ToString();
+
+            LichSu.Rows.Add(curChosen_idx, DateTime.Now);
 
             Movie_Player movie_Player = new Movie_Player(path_full);
             movie_Player.ShowDialog();
@@ -247,6 +340,29 @@ namespace BT01
         private void panel_NavBar_Click(object sender, EventArgs e)
         {
             Show_to_ListMovie();
+        }
+
+        private DataTable LichSu = new DataTable();
+        
+        private void LichSu_Init()
+        {
+            LichSu.Columns.Add("id", typeof(int));
+            LichSu.Columns.Add("last", typeof(DateTime));
+        }
+
+        private void LichSu_Click(object sender, EventArgs e)
+        {
+            Show_lichsu();
+        }
+
+        private void button_finding_Click(object sender, EventArgs e)
+        {
+            Show_Finding();
+        }
+
+        private void button_danhmuc_Click(object sender, EventArgs e)
+        {
+            Show_danhmuc();
         }
     }
 }
